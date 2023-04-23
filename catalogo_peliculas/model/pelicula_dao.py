@@ -38,3 +38,28 @@ def borrar_table():
         titulo = 'Borrar Registro'
         mensaje = 'no hay tabla para borrar'
         messagebox.showerror(titulo, mensaje)
+        
+class pelicula:
+    def __init__(self, nombre, duracion, genero):
+        self.id_pelicula = None
+        self.nombre = nombre
+        self.duracion = duracion
+        self.genero = genero
+        
+    def __str__(self):
+        return f'Pelicula[{self.nombre}, {self.duracion}, {self.genero}]'
+    
+def guardar(pelicula):
+    conexion = ConexionDB()
+    
+    sql = f'''INSERT INTO peliculas(nombre, duracion, genero)
+    VALUES('{pelicula.nombre}', '{pelicula.duracion}', '{pelicula.genero}')'''
+    
+    try:
+        conexion.cursor.execute(sql)
+        conexion.cerrar()
+    except:
+        titulo = 'Conexion al registro'
+        mensaje = 'la tabla peliculas no esta creada en la base de datos'
+        messagebox.showerror(titulo, mensaje)
+    
