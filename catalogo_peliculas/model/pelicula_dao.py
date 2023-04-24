@@ -36,15 +36,23 @@ def borrar_tabla():
         messagebox.showinfo(titulo, mensaje)
     except:
         titulo = 'Borrar Registro'
+<<<<<<< HEAD
         mensaje = 'No hay tabla para borrar'
         messagebox.showerror(titulo, mensaje)
 
 class Pelicula:
+=======
+        mensaje = 'no hay tabla para borrar'
+        messagebox.showerror(titulo, mensaje)
+        
+class pelicula:
+>>>>>>> d8f3ac276094eb7f2968626172e20e8148da373f
     def __init__(self, nombre, duracion, genero):
         self.id_pelicula = None
         self.nombre = nombre
         self.duracion = duracion
         self.genero = genero
+<<<<<<< HEAD
 
     def __str__(self):
         return f'Pelicila[{self.nombre}, {self.duracion}, {self.genero}]'
@@ -55,10 +63,23 @@ def guadar(pelicula):
     sql = f"""INSERT INTO peliculas (nombre, duracion, genero)
     VALUES('{pelicula.nombre}', '{pelicula.duracion}', '{pelicula.genero}')"""
 
+=======
+        
+    def __str__(self):
+        return f'Pelicula[{self.nombre}, {self.duracion}, {self.genero}]'
+    
+def guardar(pelicula):
+    conexion = ConexionDB()
+    
+    sql = f'''INSERT INTO peliculas(nombre, duracion, genero)
+    VALUES('{pelicula.nombre}', '{pelicula.duracion}', '{pelicula.genero}')'''
+    
+>>>>>>> d8f3ac276094eb7f2968626172e20e8148da373f
     try:
         conexion.cursor.execute(sql)
         conexion.cerrar()
     except:
+<<<<<<< HEAD
         titulo = 'Conexion al Registro'
         mensaje = 'La tabla peliculas no esta creado en la base de datos'
         messagebox.showerror(titulo, mensaje)
@@ -108,3 +129,9 @@ def eliminar(id_pelicula):
         titulo = 'Eliminar Datos'
         mensaje = 'No se pudo eliminar el registro'
         messagebox.showerror(titulo, mensaje)
+=======
+        titulo = 'Conexion al registro'
+        mensaje = 'la tabla peliculas no esta creada en la base de datos'
+        messagebox.showerror(titulo, mensaje)
+    
+>>>>>>> d8f3ac276094eb7f2968626172e20e8148da373f

@@ -1,7 +1,13 @@
 import tkinter as tk
+<<<<<<< HEAD
 from tkinter import ttk, messagebox
 from model.pelicula_dao import crear_tabla, borrar_tabla
 from model.pelicula_dao import Pelicula, guadar, listar, editar, eliminar
+=======
+from tkinter import ttk
+from model.pelicula_dao import crear_tabla, borrar_table
+from model.pelicula_dao import pelicula , guardar
+>>>>>>> d8f3ac276094eb7f2968626172e20e8148da373f
 
 def barra_menu(root):
     barra_menu = tk.Menu(root)
@@ -113,14 +119,21 @@ class Frame(tk.Frame):
 
         self.boton_guardar.config(state='disabled')
         self.boton_cancelar.config(state='disabled')
+<<<<<<< HEAD
     
     def guardar_datos(self):
 
         self.pelicula = Pelicula(
+=======
+        
+    def guardar_campos(self):
+        Pelicula = pelicula(
+>>>>>>> d8f3ac276094eb7f2968626172e20e8148da373f
             self.mi_nombre.get(),
             self.mi_duracion.get(),
             self.mi_genero.get(),
         )
+<<<<<<< HEAD
 
         if self.id_pelicula == None:
             guadar(self.pelicula)
@@ -148,6 +161,14 @@ class Frame(tk.Frame):
         self.scroll.grid(row = 4, column = 4, sticky = 'nse')
         self.tabla.configure(yscrollcommand = self.scroll.set)
 
+=======
+    guardar(pelicula)
+        
+    def tabla_peliculas(self):
+        self.tabla = ttk.Treeview(self, column = ('Nombre', 'Duracion', 'Genero'))
+        self.tabla.grid(row=4, column=0, columnspan = 4)
+        
+>>>>>>> d8f3ac276094eb7f2968626172e20e8148da373f
         self.tabla.heading('#0', text='ID')
         self.tabla.heading('#1', text='NOMBRE')
         self.tabla.heading('#2', text='DURACIÓN')
